@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Auth;
+use App\Supplying;
 
 class User extends Authenticatable
 {
@@ -50,5 +51,9 @@ class User extends Authenticatable
         if($user->role == 'supplier'){ 
             return true;
         }
+    }
+
+    public function supplying(){
+        return $this->hasMany(Supplying::class , 'user_id');
     }
 }

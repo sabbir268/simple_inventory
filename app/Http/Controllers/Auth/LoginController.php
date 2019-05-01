@@ -34,7 +34,7 @@ class LoginController extends Controller
         }
         
         if ($user->isSupplier()) { // do your margic here
-            return redirect('/home');
+            return redirect()->route('suppliers');
         }
 
         return redirect('/home');
